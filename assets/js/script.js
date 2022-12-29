@@ -33,7 +33,7 @@ $(document).ready(function () {
                         var weatherIcon = response.list[0].weather[0].icon; //variable that selects icon from API
                         var weatherURL = "http://openweathermap.org/img/wn/" + weatherIcon + "@2x.png";//link for weather icon from open weather API
                         //assign text to header 
-                        todaysHeader.html(response.city.name + " " + "(" + currentDate +")");
+                        todaysHeader.html(response.city.name + " (" + currentDate + ")");
                         //append to today section
                         todaySection.prepend(todaysHeader);
                         //create img tag
@@ -43,19 +43,25 @@ $(document).ready(function () {
                         //append to today section
                         todaysHeader.append(imgTag);//append to header so the icon appears directly after the text
                         //create unordered list 
-                        var unordedList = $("<ul>"); 
+                        var unordedList = $("<ul>");
                         //append ul to today section
                         todaySection.append(unordedList);
                         //create li 
-                        var li1 = $("<li>"); 
-                        var li2 = $("<li>"); 
-                        var li3 = $("<li>"); 
+                        var li1 = $("<li>");
+                        var li2 = $("<li>");
+                        var li3 = $("<li>");
                         //assign li value 
-                          //get temp from api
+                        //get temp from api
                         var temp1 = ((response.list[0].main.temp) - 273.15).toFixed() + "°C";  //gives temp in celsius, and tofixed returns a whole num
                         li1.html("Temp: " + temp1);
                         unordedList.prepend(li1);
-                        
+                        //assign li2 value 
+                        // get wind speed from API
+                        var wind1 = ((response.list[0].wind.speed) * 3.6).toFixed();//currently in mps, needs to be in kph by multiplying by 3.6 
+                        li2.html("Wind: " + wind1 + "KPH");
+                        //append to ul 
+                        unordedList.append(li2);
+
                         // $("#card1"), $("#icon1").empty();
                         // console.log("city data using long and lat " + response); 
                         // console.log(response); 
