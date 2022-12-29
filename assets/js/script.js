@@ -24,9 +24,25 @@ $(document).ready(function () {
                     url: queryURL, 
                     method: "GET"
                 })
-                    .then(function (response) {
-                        console.log("city data using long and lat " + response); 
-                        console.log(response);
+                    .then(function (response) {  
+                        //select section for todays weather 
+                        var todaySection = $("#today");
+                        //create header for today section
+                        var todaysHeader = $("<h5>");
+                        var currentDate = moment(response.list[0].dt_txt).format("D/M/YYYY"); //puts the current date in the format of D/M/YYYY
+                        var weatherIcon = response.list[0].weather[0].icon; //variable that selects icon from API
+                        //assign text to header 
+                        todaysHeader.html(response.city.name +" " + currentDate); 
+                        //append to today section
+                        todaySection.prepend(todaysHeader);
+                        // $("#card1"), $("#icon1").empty();
+                        // console.log("city data using long and lat " + response); 
+                        // console.log(response); 
+                        // console.log("response" + response)
+                        //
+                        // $("#card1").append(response.city.name +" " + currentDate);
+                        // console.log("icon" + weatherIcon);
+                        // $("#icon1").attr("src", weatherIcon);
                     })
             })
     })
