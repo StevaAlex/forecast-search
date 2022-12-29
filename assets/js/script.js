@@ -30,7 +30,7 @@ $(document).ready(function () {
                         //create header for today section
                         var todaysHeader = $("<h5>");
                         var currentDate = moment(response.list[0].dt_txt).format("D/M/YYYY"); //puts the current date in the format of D/M/YYYY
-                        var weatherIcon = response.list[0, 7, 0].weather[0].icon; //variable that selects icon from API is within an array matrix
+                        var weatherIcon = response.list[0].weather[0].icon; //variable that selects icon from API
                         var weatherURL = "http://openweathermap.org/img/wn/" + weatherIcon + "@2x.png";//link for weather icon from open weather API
                         //assign text to header 
                         todaysHeader.html(response.city.name + " " + "(" + currentDate +")");
@@ -42,6 +42,20 @@ $(document).ready(function () {
                         imgTag.attr("src", weatherURL);
                         //append to today section
                         todaysHeader.append(imgTag);//append to header so the icon appears directly after the text
+                        //create unordered list 
+                        var unordedList = $("<ul>"); 
+                        //append ul to today section
+                        todaySection.append(unordedList);
+                        //create li 
+                        var li1 = $("<li>"); 
+                        var li2 = $("<li>"); 
+                        var li3 = $("<li>"); 
+                        //assign li value 
+                          //get temp from api
+                        var temp1 = ((response.list[0].main.temp) - 273.15).toFixed() + "°C";  //gives temp in celsius, and tofixed returns a whole num
+                        li1.html("Temp: " + temp1);
+                        unordedList.prepend(li1);
+                        
                         // $("#card1"), $("#icon1").empty();
                         // console.log("city data using long and lat " + response); 
                         // console.log(response); 
