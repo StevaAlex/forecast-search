@@ -69,15 +69,9 @@ $(document).ready(function () {
                         li3.html("Humidity: " + humidity1 + "%");
                         //append to ul
                         unordedList.append(li3);
+                        //add heading when button is clicked which has text value "5 day forecast: " 
+                        // then when button is clicked, 5 ul with 5 day forecast
 
-                        // $("#card1"), $("#icon1").empty();
-                        // console.log("city data using long and lat " + response); 
-                        // console.log(response); 
-                        // console.log("response" + response)
-                        //
-                        // $("#card1").append(response.city.name +" " + currentDate);
-                        // console.log("icon" + weatherIcon);
-                        // $("#icon1").attr("src", weatherIcon);
                     })
             })
     })
