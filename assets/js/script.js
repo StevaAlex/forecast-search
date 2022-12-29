@@ -25,8 +25,10 @@ $(document).ready(function () {
                 })
                     .then(function (response) {
                         console.log(response);
+
                         //select section for todays weather 
-                        var todaySection = $("#today");
+                        var todaySection = $("#today"); 
+                        todaySection.empty();
                         //create header for today section
                         var todaysHeader = $("<h5>");
                         var currentDate = moment(response.list[0].dt_txt).format("D/M/YYYY"); //puts the current date in the format of D/M/YYYY
@@ -61,6 +63,12 @@ $(document).ready(function () {
                         li2.html("Wind: " + wind1 + "KPH");
                         //append to ul 
                         unordedList.append(li2);
+                        //assign li3 value
+                        //get humidity from api
+                        var humidity1 = response.list[0].main.humidity; 
+                        li3.html("Humidity: " + humidity1 + "%");
+                        //append to ul
+                        unordedList.append(li3);
 
                         // $("#card1"), $("#icon1").empty();
                         // console.log("city data using long and lat " + response); 
