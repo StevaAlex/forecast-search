@@ -130,10 +130,8 @@ $(document).ready(function () {
                         day1.append(iconDay1);
                         //create ul for each divs 
                         var ulDay1 = $("<ul>");
-                        var ulDay3 = $("<ul>");
                         //append each ul to its correct div
                         day1.append(ulDay1);
-                        day3.append(ulDay3);
                         //each ul needs 3 li 
                         var day1Li1 = $("<li>");
                         var day1Li2 = $("<li>");
@@ -189,6 +187,103 @@ $(document).ready(function () {
                          //append to ul 
                          ulDay2.append(day2Li3); 
                          
+                        //DAY THREE FORECAST
+                         //create weather icon/image tag
+                         var iconDay3 = $("<img>");
+                         var weatherIconDay3 = response.list[3].weather[0].icon; //variable that selects icon from API
+                         var weatherURLDay3 = "http://openweathermap.org/img/wn/" + weatherIconDay3 + "@2x.png";
+                         iconDay3.attr("src", weatherURLDay3);  
+                         day3.append(iconDay3);
+
+                         //append ul to day 3 div
+                         var ulDay3 = $("<ul>");
+                         day3.append(ulDay3);
+                         //create 3 li 
+                         var day3Li1 = $("<li>");
+                         var day3Li2 = $("<li>");
+                         var day3Li3 = $("<li>");
+                         //add temp to li 1
+                         var tempDay3 = ("Temp: " + ((response.list[3].main.temp) - 273.15).toFixed() + "°C");  //gives temp in celsius, and tofixed returns a whole num
+                         day3Li1.html(tempDay3);
+                         //append day 3 li 1 to ul
+                         ulDay3.append(day3Li1);
+                         //assign wind speed to day 3 li 2
+                         var windDay3 = ((response.list[3].wind.speed) * 3.6).toFixed();//currently in mps, needs to be in kph by multiplying by 3.6 
+                         day3Li2.html("Wind: " + windDay3 + "KPH"); 
+                         //append li 2 to ul 
+                         ulDay3.append(day3Li2);
+                         //assign humidity to day 3 li 3 
+                         //get humidity from api
+                         var humidityDay3 = response.list[3].main.humidity;
+                         day3Li3.html("Humidity: " + humidityDay3 + "%");
+                         //append to ul 
+                         ulDay3.append(day3Li3); 
+
+                        //DAY FOUR FORECAST
+                         //create weather icon/image tag
+                         var iconDay4 = $("<img>");
+                         var weatherIconDay4 = response.list[4].weather[0].icon; //variable that selects icon from API
+                         var weatherURLDay4 = "http://openweathermap.org/img/wn/" + weatherIconDay4 + "@2x.png";
+                         iconDay4.attr("src", weatherURLDay4);  
+                         day4.append(iconDay4);
+
+                         //append ul to day 4 div
+                         var ulDay4 = $("<ul>");
+                         day4.append(ulDay4);
+                         //create 3 li 
+                         var day4Li1 = $("<li>");
+                         var day4Li2 = $("<li>");
+                         var day4Li3 = $("<li>");
+                         //add temp to li 1
+                         var tempDay4 = ("Temp: " + ((response.list[4].main.temp) - 273.15).toFixed() + "°C");  //gives temp in celsius, and tofixed returns a whole num
+                         day4Li1.html(tempDay4);
+                         //append day 4 li 1 to ul
+                         ulDay4.append(day4Li1);
+                         //assign wind speed to day 4 li 2
+                         var windDay4 = ((response.list[4].wind.speed) * 3.6).toFixed();//currently in mps, needs to be in kph by multiplying by 3.6 
+                         day4Li2.html("Wind: " + windDay4 + "KPH"); 
+                         //append li 2 to ul 
+                         ulDay4.append(day4Li2);
+                         //assign humidity to day 4 li 3 
+                         //get humidity from api
+                         var humidityDay4 = response.list[4].main.humidity;
+                         day4Li3.html("Humidity: " + humidityDay4 + "%");
+                         //append to ul 
+                         ulDay4.append(day4Li3); 
+
+                         //DAY FIVE FORECAST
+                         //create weather icon/image tag
+                         var iconDay5 = $("<img>");
+                         var weatherIconDay5 = response.list[5].weather[0].icon; //variable that selects icon from API
+                         var weatherURLDay5 = "http://openweathermap.org/img/wn/" + weatherIconDay5 + "@2x.png";
+                         iconDay5.attr("src", weatherURLDay5);  
+                         day5.append(iconDay5);
+
+                         //append ul to day 5 div
+                         var ulDay5 = $("<ul>");
+                         day5.append(ulDay5);
+                         //create 3 li 
+                         var day5Li1 = $("<li>");
+                         var day5Li2 = $("<li>");
+                         var day5Li3 = $("<li>");
+                         //add temp to li 1
+                         var tempDay5 = ("Temp: " + ((response.list[5].main.temp) - 273.15).toFixed() + "°C");  //gives temp in celsius, and tofixed returns a whole num
+                         day5Li1.html(tempDay5);
+                         //append day 5 li 1 to ul
+                         ulDay5.append(day5Li1);
+                         //assign wind speed to day 5 li 2
+                         var windDay5 = ((response.list[5].wind.speed) * 3.6).toFixed();//currently in mps, needs to be in kph by multiplying by 3.6 
+                         day5Li2.html("Wind: " + windDay5 + "KPH"); 
+                         //append li 2 to ul 
+                         ulDay5.append(day5Li2);
+                         //assign humidity to day 5 li 3 
+                         //get humidity from api
+                         var humidityDay5 = response.list[5].main.humidity;
+                         day5Li3.html("Humidity: " + humidityDay5 + "%");
+                         //append to ul 
+                         ulDay5.append(day5Li3); 
+
+                         //on click, create button on left hand side with the name of the city
 
                     })
             })
