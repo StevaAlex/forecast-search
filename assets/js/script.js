@@ -121,6 +121,7 @@ $(document).ready(function () {
                         day4.append(day4Head);
                         day5.append(day5Head);
                         //create li 1 content which is the icon/image tag
+                        //create weather icon/image tag
                         var iconDay1 = $("<img>");
                         var weatherIconDay1 = response.list[1].weather[0].icon; //variable that selects icon from API
                         var weatherURLDay1 = "http://openweathermap.org/img/wn/" + weatherIconDay1 + "@2x.png";
@@ -129,13 +130,11 @@ $(document).ready(function () {
                         day1.append(iconDay1);
                         //create ul for each divs 
                         var ulDay1 = $("<ul>");
-                        var ulDay2 = $("<ul>");
                         var ulDay3 = $("<ul>");
                         //append each ul to its correct div
                         day1.append(ulDay1);
-                        day2.append(ulDay2);
                         day3.append(ulDay3);
-                        //each ul needs 4 li 
+                        //each ul needs 3 li 
                         var day1Li1 = $("<li>");
                         var day1Li2 = $("<li>");
                         var day1Li3 = $("<li>");
@@ -156,7 +155,40 @@ $(document).ready(function () {
                         //append to ul 
                         ulDay1.append(day1Li3); 
 
-        
+                        //copy and paste day 1 for the remainiung days, remember day 2, list[2], day 3 list[3], etc 
+
+                        //DAY TWO FORECAST
+                         //create weather icon/image tag
+                         var iconDay2 = $("<img>");
+                         var weatherIconDay2 = response.list[2].weather[0].icon; //variable that selects icon from API
+                         var weatherURLDay2 = "http://openweathermap.org/img/wn/" + weatherIconDay2 + "@2x.png";
+                         iconDay2.attr("src", weatherURLDay2);  
+                         day2.append(iconDay2);
+
+                         //append ul to day 2 div
+                         var ulDay2 = $("<ul>");
+                         day2.append(ulDay2);
+                         //create 3 li 
+                         var day2Li1 = $("<li>");
+                         var day2Li2 = $("<li>");
+                         var day2Li3 = $("<li>");
+                         //add temp to li 1
+                         var tempDay2 = ("Temp: " + ((response.list[2].main.temp) - 273.15).toFixed() + "°C");  //gives temp in celsius, and tofixed returns a whole num
+                         day2Li1.html(tempDay2);
+                         //append day 2 li 1 to ul
+                         ulDay2.append(day2Li1);
+                         //assign wind speed to day 2 li 2
+                         var windDay2 = ((response.list[2].wind.speed) * 3.6).toFixed();//currently in mps, needs to be in kph by multiplying by 3.6 
+                         day2Li2.html("Wind: " + windDay2 + "KPH"); 
+                         //append li 2 to ul 
+                         ulDay2.append(day2Li2);
+                         //assign humidity to day 1 li 3 
+                         //get humidity from api
+                         var humidityDay2 = response.list[2].main.humidity;
+                         day2Li3.html("Humidity: " + humidityDay2 + "%");
+                         //append to ul 
+                         ulDay2.append(day2Li3); 
+                         
 
                     })
             })
