@@ -27,26 +27,30 @@ $(document).ready(function () {
 
                         //select section for todays weather 
                         var todaySection = $("#today");
+                        // create div to contain elements
+                        var divMain = $("<div>");
                         todaySection.empty(); //clears the section everytime the button is clicked
+                        divMain.attr("class", "weatherToday");
+                        todaySection.append(divMain);
                         //create header for today section
-                        var todaysHeader = $("<h5>");
+                        var todaysHeader = $("<h5>"); 
                         var currentDate = moment(response.list[0].dt_txt).format("D/M/YYYY"); //puts the current date in the format of D/M/YYYY
                         var weatherIcon = response.list[0].weather[0].icon; //variable that selects icon from API
                         var weatherURL = "http://openweathermap.org/img/wn/" + weatherIcon + "@2x.png";//link for weather icon from open weather API
                         //assign text to header 
                         todaysHeader.html(response.city.name + " (" + currentDate + ")");
                         //append to today section
-                        todaySection.prepend(todaysHeader);
+                        divMain.prepend(todaysHeader);
                         //create img tag
                         var imgTag = $("<img>");
                         //assign source
                         imgTag.attr("src", weatherURL);
                         //append to today section
-                        todaysHeader.append(imgTag);//append to header so the icon appears directly after the text
+                        divMain.append(imgTag);//append to header so the icon appears directly after the text
                         //create unordered list 
                         var unordedList = $("<ul>");
                         //append ul to today section
-                        todaySection.append(unordedList);
+                        divMain.append(unordedList);
                         //create li 
                         var li1 = $("<li>");
                         var li2 = $("<li>");
@@ -84,6 +88,11 @@ $(document).ready(function () {
                         var day3 = $("<div>");
                         var day4 = $("<div>");
                         var day5 = $("<div>");
+                        day1.attr("class", "list1"); //add an ID to allow you to override bootstrap css
+                        day2.attr("id", "list2");
+                        day3.attr("id", "list3");
+                        day4.attr("id", "list4");
+                        day5.attr("id", "list5");
                         //add day 1 text
                         console.log(response);
                         //select next 5 days' dates
@@ -129,7 +138,7 @@ $(document).ready(function () {
                         //append image to div 1
                         day1.append(iconDay1);
                         //create ul for each divs 
-                        var ulDay1 = $("<ul>");
+                        var ulDay1 = $("<ul>"); 
                         //append each ul to its correct div
                         day1.append(ulDay1);
                         //each ul needs 3 li 
@@ -144,7 +153,8 @@ $(document).ready(function () {
                         //assign wind speed to day 1 li 2
                         var windDay1 = ((response.list[7].wind.speed) * 3.6).toFixed();//currently in mps, needs to be in kph by multiplying by 3.6 
                         day1Li2.html("Wind: " + windDay1 + "KPH");
-                        //append li 2 to ul 
+                        //append li 2 to ul  
+                        
                         ulDay1.append(day1Li2);
                         //assign humidity to day 1 li 3 
                         //get humidity from api
@@ -164,7 +174,9 @@ $(document).ready(function () {
                         day2.append(iconDay2);
 
                         //append ul to day 2 div
+                        
                         var ulDay2 = $("<ul>");
+                        
                         day2.append(ulDay2);
                         //create 3 li 
                         var day2Li1 = $("<li>");
@@ -175,6 +187,7 @@ $(document).ready(function () {
                         day2Li1.html(tempDay2);
                         //append day 2 li 1 to ul
                         ulDay2.append(day2Li1);
+                    
                         //assign wind speed to day 2 li 2
                         var windDay2 = ((response.list[15].wind.speed) * 3.6).toFixed();//currently in mps, needs to be in kph by multiplying by 3.6 
                         day2Li2.html("Wind: " + windDay2 + "KPH");
