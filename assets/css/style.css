@@ -1,0 +1,13 @@
+/* remove style from Li */ 
+#forecast ul, #today ul { 
+    list-style: none !important;
+    padding-inline-start:0; /* allows the text to align at the start */
+} 
+
+#today .weatherToday { 
+    margin: black 25px !important;
+} 
+.list1, #list2, #list3, #list4, #list5 { 
+    background-color: grey; 
+    margin: white 10px !important;
+}
