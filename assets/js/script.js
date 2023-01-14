@@ -2,7 +2,7 @@ $(document).ready(function () {
     $("#search-button").on("click", function (event) {
         var cityInput = ($("#search-input").val()).trim();//use .val to get value back from the input
         //feed this input into a geocode api to get the long and lat co-ordinates
-        var queryURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + cityInput + "&limit=1" + "&appid=96300bc0e7b9446d24a0aa1ec635d8ba";
+        var queryURL = "https://api.openweathermap.org/geo/1.0/direct?q=" + cityInput + "&limit=1" + "&appid=96300bc0e7b9446d24a0aa1ec635d8ba";
         // var queryURL = "api.openweathermap.org/data/2.5/forecast?lat=" +lat + "&lon=" lon + "&appid=" + "ENTER API KEY" 
         var longitude;//create empty variables for long and lat
         var latitude;
@@ -17,7 +17,7 @@ $(document).ready(function () {
                 longitude = cityData.lon; //use the response to get back long and lat co-ordinates
                 latitude = cityData.lat;
                 //add this second api within the then function so the long and lat co-ordinates can be fed into the weather api
-                queryURL = "http://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=96300bc0e7b9446d24a0aa1ec635d8ba";
+                queryURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=96300bc0e7b9446d24a0aa1ec635d8ba";
                 $.ajax({
                     url: queryURL,
                     method: "GET"
@@ -36,7 +36,7 @@ $(document).ready(function () {
                         var todaysHeader = $("<h5>"); 
                         var currentDate = moment(response.list[0].dt_txt).format("D/M/YYYY"); //puts the current date in the format of D/M/YYYY
                         var weatherIcon = response.list[0].weather[0].icon; //variable that selects icon from API
-                        var weatherURL = "http://openweathermap.org/img/wn/" + weatherIcon + "@2x.png";//link for weather icon from open weather API
+                        var weatherURL = "https://openweathermap.org/img/wn/" + weatherIcon + "@2x.png";//link for weather icon from open weather API
                         //assign text to header 
                         todaysHeader.html(response.city.name + " (" + currentDate + ")");
                         //append to today section
@@ -133,7 +133,7 @@ $(document).ready(function () {
                         //create weather icon/image tag
                         var iconDay1 = $("<img>");
                         var weatherIconDay1 = response.list[7].weather[0].icon; //variable that selects icon from API
-                        var weatherURLDay1 = "http://openweathermap.org/img/wn/" + weatherIconDay1 + "@2x.png";
+                        var weatherURLDay1 = "https://openweathermap.org/img/wn/" + weatherIconDay1 + "@2x.png";
                         iconDay1.attr("src", weatherURLDay1);
                         //append image to div 1
                         day1.append(iconDay1);
@@ -169,7 +169,7 @@ $(document).ready(function () {
                         //create weather icon/image tag
                         var iconDay2 = $("<img>");
                         var weatherIconDay2 = response.list[15].weather[0].icon; //variable that selects icon from API
-                        var weatherURLDay2 = "http://openweathermap.org/img/wn/" + weatherIconDay2 + "@2x.png";
+                        var weatherURLDay2 = "https://openweathermap.org/img/wn/" + weatherIconDay2 + "@2x.png";
                         iconDay2.attr("src", weatherURLDay2);
                         day2.append(iconDay2);
 
@@ -204,7 +204,7 @@ $(document).ready(function () {
                         //create weather icon/image tag
                         var iconDay3 = $("<img>");
                         var weatherIconDay3 = response.list[23].weather[0].icon; //variable that selects icon from API
-                        var weatherURLDay3 = "http://openweathermap.org/img/wn/" + weatherIconDay3 + "@2x.png";
+                        var weatherURLDay3 = "https://openweathermap.org/img/wn/" + weatherIconDay3 + "@2x.png";
                         iconDay3.attr("src", weatherURLDay3);
                         day3.append(iconDay3);
 
@@ -236,7 +236,7 @@ $(document).ready(function () {
                         //create weather icon/image tag
                         var iconDay4 = $("<img>");
                         var weatherIconDay4 = response.list[31].weather[0].icon; //variable that selects icon from API
-                        var weatherURLDay4 = "http://openweathermap.org/img/wn/" + weatherIconDay4 + "@2x.png";
+                        var weatherURLDay4 = "https://openweathermap.org/img/wn/" + weatherIconDay4 + "@2x.png";
                         iconDay4.attr("src", weatherURLDay4);
                         day4.append(iconDay4);
 
@@ -268,7 +268,7 @@ $(document).ready(function () {
                         //create weather icon/image tag
                         var iconDay5 = $("<img>");
                         var weatherIconDay5 = response.list[39].weather[0].icon; //variable that selects icon from API
-                        var weatherURLDay5 = "http://openweathermap.org/img/wn/" + weatherIconDay5 + "@2x.png";
+                        var weatherURLDay5 = "https://openweathermap.org/img/wn/" + weatherIconDay5 + "@2x.png";
                         iconDay5.attr("src", weatherURLDay5);
                         day5.append(iconDay5);
 
@@ -318,7 +318,7 @@ $(document).ready(function () {
                             var historySection = $("#history");
                             cityButton.html(cityNameStored[i]);
                             historySection.prepend(cityButton); 
-                            
+
                         }
                        
 
