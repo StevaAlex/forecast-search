@@ -7,7 +7,7 @@
 #today .weatherToday { 
     margin: black 25px !important;
 } 
-.list1, #list2, #list3, #list4, #list5 { 
+#list1, #list2, #list3, #list4, #list5 { 
     background-color: grey; 
-    margin: white 10px !important;
+    border: 20px;
 }

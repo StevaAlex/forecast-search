@@ -88,7 +88,7 @@ $(document).ready(function () {
                         var day3 = $("<div>");
                         var day4 = $("<div>");
                         var day5 = $("<div>");
-                        day1.attr("class", "list1"); //add an ID to allow you to override bootstrap css
+                        day1.attr("id", "list1"); //add an ID to allow you to override bootstrap css
                         day2.attr("id", "list2");
                         day3.attr("id", "list3");
                         day4.attr("id", "list4");
@@ -317,7 +317,8 @@ $(document).ready(function () {
                             var cityButton = $("<button>");
                             var historySection = $("#history");
                             cityButton.html(cityNameStored[i]);
-                            historySection.prepend(cityButton);
+                            historySection.prepend(cityButton); 
+                            
                         }
                        
 
